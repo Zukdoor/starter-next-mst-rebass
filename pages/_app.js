@@ -6,7 +6,7 @@ import NProgress from 'nprogress'
 import {ThemeProvider} from 'styled-components'
 import {Flex, Text} from 'rebass'
 import {RouterContext} from '../future'
-import theme from '../static/theme'
+import theme from '../theme'
 
 Router.events.on('routeChangeStart', url => {
   console.log(`Loading: ${url}`)
