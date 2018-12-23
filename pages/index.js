@@ -1,4 +1,5 @@
 import {Box, Card, Flex, Image, Heading, Text} from 'rebass'
+import SampleComponent from '../components/SampleComponent'
 
 const photo = '/static/images/photo.jpeg'
 
@@ -17,5 +18,6 @@ export default () => (
         </Box>
       </Card>
     </Box>
+    <SampleComponent title="Current time" linkTo="/about" />
   </div>
 )

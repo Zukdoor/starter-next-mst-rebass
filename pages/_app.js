@@ -5,6 +5,9 @@ import Router, {withRouter} from 'next/router'
 import NProgress from 'nprogress'
 import {ThemeProvider} from 'styled-components'
 import {Flex, Text} from 'rebass'
+import {Provider} from 'mobx-react'
+import {getSnapshot} from 'mobx-state-tree'
+import {initializeStore} from '../stores/store'
 import {RouterContext} from '../future'
 import theme from '../theme'
 
@@ -24,13 +27,25 @@ const InjectRouterContext = withRouter(({router, children}) => {
 
 export default class MyApp extends App {
   static async getInitialProps({Component, router, ctx}) {
+    const isServer = typeof window === 'undefined'
+    const store = initializeStore(isServer)
+
     let pageProps = {}
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    return {pageProps}
+    return {
+      initialState: getSnapshot(store),
+      isServer,
+      pageProps,
+    }
+  }
+
+  constructor(props) {
+    super(props)
+    this.store = initializeStore(props.isServer, props.initialState)
   }
 
   render() {
@@ -39,35 +54,37 @@ export default class MyApp extends App {
     return (
       <Container>
         <InjectRouterContext>
-          <ThemeProvider theme={theme}>
-            <div>
-              <div style={{marginBottom: 20}}>
-                <Flex>
-                  <Link href="/">
-                    <a>
-                      <Text p={1}>Home</Text>
-                    </a>
-                  </Link>
-                  <Link href="/about">
-                    <a>
-                      <Text p={1}>About</Text>
-                    </a>
-                  </Link>
-                  <Link href="/forever">
-                    <a>
-                      <Text p={1}>Forever</Text>
-                    </a>
-                  </Link>
-                  <Link href="/non-existing">
-                    <a>
-                      <Text p={1}>Non Existing Page</Text>
-                    </a>
-                  </Link>
-                </Flex>
+          <Provider store={this.store}>
+            <ThemeProvider theme={theme}>
+              <div>
+                <div style={{marginBottom: 20}}>
+                  <Flex>
+                    <Link href="/">
+                      <a>
+                        <Text p={1}>Home</Text>
+                      </a>
+                    </Link>
+                    <Link href="/about">
+                      <a>
+                        <Text p={1}>About</Text>
+                      </a>
+                    </Link>
+                    <Link href="/forever">
+                      <a>
+                        <Text p={1}>Forever</Text>
+                      </a>
+                    </Link>
+                    <Link href="/non-existing">
+                      <a>
+                        <Text p={1}>Non Existing Page</Text>
+                      </a>
+                    </Link>
+                  </Flex>
+                </div>
+                <Component {...pageProps} />
               </div>
-              <Component {...pageProps} />
-            </div>
-          </ThemeProvider>
+            </ThemeProvider>
+          </Provider>
         </InjectRouterContext>
       </Container>
     )
