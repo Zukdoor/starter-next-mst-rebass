@@ -1,20 +1,27 @@
+import {Box, Text} from 'rebass'
+
 export default props => {
   return (
-    <div className={props.light ? 'light' : ''}>
-      {format(new Date(props.lastUpdate))}
-      <style jsx>{`
-        div {
-          padding: 15px;
-          color: #82fa58;
-          display: inline-block;
-          font: 50px menlo, monaco, monospace;
-          background-color: #000;
-        }
-
-        .light {
-          background-color: #999;
-        }
-      `}</style>
+    <div>
+      <Box
+        p={1}
+        width={[1, 3 / 4, 1 / 2]}
+        color="yellow"
+        css={{margin: '0 auto'}}
+      >
+        <Text
+          fontSize={2}
+          textAlign="center"
+          width={1 / 2}
+          css={{
+            font: '50px menlo, monaco, monospace',
+            'background-color': props.light ? 'lightgrey' : 'darkgrey',
+            margin: '0 auto',
+          }}
+        >
+          {format(new Date(props.lastUpdate))}
+        </Text>
+      </Box>
     </div>
   )
 }

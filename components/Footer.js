@@ -4,7 +4,7 @@ import Clock from './Clock'
 
 @inject('store')
 @observer
-class SampleComponent extends React.Component {
+class Footer extends React.Component {
   componentDidMount() {
     this.props.store.start()
   }
@@ -16,7 +16,6 @@ class SampleComponent extends React.Component {
   render() {
     return (
       <div>
-        <h1>{this.props.title}</h1>
         <Clock
           lastUpdate={this.props.store.lastUpdate}
           light={this.props.store.light}
@@ -26,4 +25,4 @@ class SampleComponent extends React.Component {
   }
 }
 
-export default SampleComponent
+export default Footer

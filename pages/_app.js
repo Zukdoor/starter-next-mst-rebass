@@ -1,15 +1,15 @@
 import React from 'react'
 import App, {Container} from 'next/app'
-import Link from 'next/link'
 import Router, {withRouter} from 'next/router'
 import NProgress from 'nprogress'
 import {ThemeProvider} from 'styled-components'
-import {Flex, Text} from 'rebass'
 import {Provider} from 'mobx-react'
 import {getSnapshot} from 'mobx-state-tree'
 import {initializeStore} from '../stores/store'
 import {RouterContext} from '../future'
 import theme from '../theme'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 Router.events.on('routeChangeStart', url => {
   console.log(`Loading: ${url}`)
@@ -57,31 +57,9 @@ export default class MyApp extends App {
           <ThemeProvider theme={theme}>
             <Provider store={this.store}>
               <div>
-                <div style={{marginBottom: 20}}>
-                  <Flex>
-                    <Link href="/">
-                      <a>
-                        <Text p={1}>Home</Text>
-                      </a>
-                    </Link>
-                    <Link href="/about">
-                      <a>
-                        <Text p={1}>About</Text>
-                      </a>
-                    </Link>
-                    <Link href="/forever">
-                      <a>
-                        <Text p={1}>Forever</Text>
-                      </a>
-                    </Link>
-                    <Link href="/non-existing">
-                      <a>
-                        <Text p={1}>Non Existing Page</Text>
-                      </a>
-                    </Link>
-                  </Flex>
-                </div>
+                <Header />
                 <Component {...pageProps} />
+                <Footer />
               </div>
             </Provider>
           </ThemeProvider>
