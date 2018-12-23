@@ -12,7 +12,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 Router.events.on('routeChangeStart', url => {
-  console.log(`Loading: ${url}`)
+  // console.log(`Loading: ${url}`)
   NProgress.start()
 })
 Router.events.on('routeChangeComplete', () => NProgress.done())
