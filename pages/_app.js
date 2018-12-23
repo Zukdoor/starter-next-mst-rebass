@@ -54,8 +54,8 @@ export default class MyApp extends App {
     return (
       <Container>
         <InjectRouterContext>
-          <Provider store={this.store}>
-            <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme}>
+            <Provider store={this.store}>
               <div>
                 <div style={{marginBottom: 20}}>
                   <Flex>
@@ -83,8 +83,8 @@ export default class MyApp extends App {
                 </div>
                 <Component {...pageProps} />
               </div>
-            </ThemeProvider>
-          </Provider>
+            </Provider>
+          </ThemeProvider>
         </InjectRouterContext>
       </Container>
     )

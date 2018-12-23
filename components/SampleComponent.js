@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 import {inject, observer} from 'mobx-react'
 import Clock from './Clock'
 
@@ -22,11 +21,6 @@ class SampleComponent extends React.Component {
           lastUpdate={this.props.store.lastUpdate}
           light={this.props.store.light}
         />
-        <nav>
-          <Link href={this.props.linkTo}>
-            <a>Navigate</a>
-          </Link>
-        </nav>
       </div>
     )
   }
