@@ -1,4 +1,4 @@
-import {Box, Card, Flex, Image, Heading, Text} from 'rebass'
+import {Box, Card, Heading, Image, Text} from 'rebass'
 
 const photo = '/static/images/photo.jpeg'
 
