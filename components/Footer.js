@@ -1,5 +1,6 @@
 import React from 'react'
 import {inject, observer} from 'mobx-react'
+import {Text} from 'rebass'
 import Clock from './Clock'
 
 @inject('store')
@@ -20,6 +21,9 @@ class Footer extends React.Component {
           lastUpdate={this.props.store.lastUpdate}
           light={this.props.store.light}
         />
+        <Text fontSize={[1, 3, 5]} textAlign="right">
+          Zukdoor Inc., 2018
+        </Text>
       </div>
     )
   }

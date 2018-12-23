@@ -6,17 +6,20 @@ export default props => {
       <Box
         p={1}
         width={[1, 3 / 4, 1 / 2]}
-        color="yellow"
-        css={{margin: '0 auto'}}
+        color="#fef263"
+        css={{
+          margin: '0 auto',
+        }}
       >
         <Text
-          fontSize={2}
           textAlign="center"
-          width={1 / 2}
+          fontFamily="menlo, monaco, monospace"
+          fontSize={[1, 3, 5]}
+          width={[1 / 4, 1 / 3, 1 / 2]}
           css={{
-            font: '50px menlo, monaco, monospace',
             'background-color': props.light ? 'lightgrey' : 'darkgrey',
             margin: '0 auto',
+            'border-radius': '15px',
           }}
         >
           {format(new Date(props.lastUpdate))}
