@@ -6,6 +6,6 @@
       "use": "@now/next"
     }
   ],
-  "name": "zuk-template-next",
-  "alias": "template-next.zukdoor.cloud"
+  "name": "starter-next-mst-rebass",
+  "alias": "starter-next-mst-rebass"
 }
