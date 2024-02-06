@@ -3660,10 +3660,10 @@ mobx-react@6.0.3:
   dependencies:
     mobx-react-lite "1.4.0"
 
-mobx-state-tree@3.14.0:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-3.14.0.tgz#8611051b93a71439db161b8ec855870cfd7e678d"
-  integrity sha512-obQ+LPCff4LqX86ghQpYIVAtCmps7ewCxIds/EmSxBULj9+7Qs2v4YEbvUeWymp/Sj3dPcvDjIMMdIRz6sUE5Q==
+mobx-state-tree@5.4.1:
+  version "5.4.1"
+  resolved "https://registry.yarnpkg.com/mobx-state-tree/-/mobx-state-tree-5.4.1.tgz#97182a1e2587db5ff7a2b5f11ac6971e50498aed"
+  integrity sha512-eEBmfeYzbNSbNsdM+T1pchuOykZXT50B7eCXgf0E0O/jad/cigu4heBB9RwxzzyD/QGrXBPVctKYLypVXNHt3Q==
 
 mobx@5.10.0:
   version "5.10.0"
